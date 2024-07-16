@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.input.KeyEvent?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.soccer.SoccerController" >
+
+    <Pane fx:id="gamePane" prefWidth="800" prefHeight="600" onKeyPressed="#handleKeyPress" focusTraversable="true">
+        <Label fx:id="gameTimerLabel" layoutX="368" layoutY="3" text="0:10" />
+        <Label fx:id="leftScoreLabel" layoutX="100" layoutY="50" text="0" />
+        <Label fx:id="rightScoreLabel" layoutX="700" layoutY="50" text="0" />
+        <Pane>
+        <Circle fx:id="ball" radius="10" />
+        <Circle fx:id="leftPlayer" radius="20" />
+        <Circle fx:id="rightPlayer" radius="20" />
+        <Rectangle fx:id="leftGates" x="0" y="200" width="13" height="200" />
+        <Rectangle fx:id="RightGates" x="787" y="200" width="13" height="200" />
+        </Pane>
+    </Pane>
+    <BorderPane fx:id="menuPane">
+        <center>
+            <VBox alignment="CENTER" spacing="20">
+                <ImageView fx:id="logoImageView" />
+                <Button text="Play"  onAction="#handleStartGame"/>
+                <Button text="Exit" onAction="#handleExitGame"/>
+            </VBox>
+        </center>
+    </BorderPane>
+    <BorderPane fx:id="pausePane" visible="false">
+        <center>
+            <VBox alignment="CENTER" spacing="20">
+                <Label fx:id="pauseLabel" text="Game Paused" />
+                <Button text="Resume" onAction="#handleResumeGame"/>
+            </VBox>
+        </center>
+    </BorderPane>
+    <BorderPane fx:id="gameOverPane" visible="false">
+        <center>
+            <VBox alignment="CENTER" spacing="20">
+                <Label fx:id="GameOverLabel" text="Game Over" />
+                <Label fx:id="winnerLabel" text="Win 0000" />
+                <Button text="to Menu" onAction="#handleHome"/>
+            </VBox>
+        </center>
+    </BorderPane>
+    
+</StackPane>
